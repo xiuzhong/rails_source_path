@@ -1,4 +1,8 @@
 require "bundler/setup"
+require 'active_support/concern'
+require 'rails'
+require 'action_controller/railtie'
+require 'rspec/rails'
 require "rails_source_path"
 
 RSpec.configure do |config|

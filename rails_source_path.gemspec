@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Leo Li"]
   spec.email         = ["lxz.tty@gmail.com"]
 
-  spec.summary       = %q{Remember the route before entering the current controller and use later}
+  spec.summary       = %q{Remember the route prior to the current controller and redirect/use later}
   spec.description   = %q{In rails project, one common case is one form used to create or update
     an object can be routed from more than one page, when the object is created or updated, it
     should be redirected back to wherever it came from. Rails redirect_back doesn't work in this
@@ -46,4 +46,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "rspec-rails"
+
+  spec.add_dependency "rails", '>= 4.0.2'
+  spec.add_dependency "activesupport", '>= 3.0'
+
 end
