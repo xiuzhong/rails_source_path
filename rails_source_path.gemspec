@@ -10,7 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["lxz.tty@gmail.com"]
 
   spec.summary       = %q{Remember the route prior to the current controller and redirect/use later}
-  spec.description   = %q{In rails project, one common case is one form used to create or update
+  spec.description   = %q{Remember the route prior to the current controller and redirect/use later
+    In rails project, one common case is one form used to create or update
     an object can be routed from more than one page, when the object is created or updated, it
     should be redirected back to wherever it came from. Rails redirect_back doesn't work in this
     case because: 1. redirect_back in create/update action will go back to new/edit form. 2.
