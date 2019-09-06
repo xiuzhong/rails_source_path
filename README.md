@@ -1,13 +1,16 @@
 # RailsSourcePath
 
-In rails project, one common case is one form used to create or update
-an object can be routed from more than one page, when the object is created or updated, it
-should be redirected back to wherever it came from. Rails redirect_back doesn't work in this
-case because: 1. redirect_back in create/update action will go back to new/edit form. 2.
-usually the form is re-rendered if any error exists, which basically breaks the redirect_back.
-rails-source-path can hanlde this by explicily specifying the entry actions and remember the
-previous route in session store, hence can be used in the whole controller. Also a helper
-method is providered so it can be used in view like 'back' or 'cancel' button.
+In rails project, one common scenario is:
+
+One form used to create or update an object can be routed from more than one page, when the object is created or updated, it should be redirected back to wherever it came from.
+
+Rails `redirect_back` doesn't work in this case because:
+- `redirect_back` in create/update action will go back to new/edit form.
+- usually the form is re-rendered if any error exists, which basically breaks the `redirect_back`.
+
+`rails-source-path` can hanlde this by explicily specifying the entry actions and remember the
+previous route in `session` store, hence can be used later in the whole controller. Also a helper
+method is providered so it can be used in view like `back` or `cancel` button.
 
 ## Installation
 
@@ -26,7 +29,7 @@ Or install it yourself as:
     $ gem install rails_source_path
 
 ## Usage
-
+```
 class YourController < ApplicationController
   rails_source_path_entry_actions :new, :edit
   ...
@@ -46,6 +49,18 @@ class YourController < ApplicationController
       ...
     end
   end
+end
+
+# in your view/partial
+link_to 'Cancel', rails_source_path, class: 'button'
+```
+
+Both `redirect_to_source` and `rails_source_path` accept an optional argument which is the path when there is no previous route remembered.
+
+```
+def rails_source_path(default_path = root_path)
+def redirect_to_source(default_path = root_path)
+```
 
 ## License
 
